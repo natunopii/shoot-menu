@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TRAINING MENU by THE PERSON Vol.5 — 香盤表</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+    :root{--orange:#E2792E;--gold:#FFB11B;--black:#1C1C1C;--off-white:#FFFFFB;--gray:#B4B5B4;--lt-gray:#EEEDEB;--white:#FFFFFF;--green:#227D51;--font-en:'Montserrat','Helvetica Neue',Arial,sans-serif;--font-ja:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;--r-sm:6px;--r-md:12px;--r-pill:20px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-ja);background:var(--lt-gray);color:var(--black);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    .koban{background:var(--white);max-width:960px;margin:32px auto;border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.05);box-shadow:4px 8px 32px rgba(0,0,0,.1);}
+    .kb-cover{background:var(--black);padding:48px 56px;position:relative;overflow:hidden;}
+    .kb-cover::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--orange);}
+    .kb-cover-lbl{font-family:var(--font-en);font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--orange);text-transform:uppercase;margin-bottom:12px;}
+    .kb-cover-title{font-family:var(--font-ja);font-size:30px;font-weight:700;color:var(--off-white);line-height:1.3;letter-spacing:.03em;margin-bottom:20px;}
+    .kb-cover-meta{display:flex;flex-wrap:wrap;gap:28px;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;}
+    .kb-mi{display:flex;flex-direction:column;gap:3px;}
+    .kb-ml{font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.3);text-transform:uppercase;}
+    .kb-mv{font-size:13px;font-weight:500;color:var(--off-white);line-height:1.4;}
+    .kb-svc-tag{display:inline-flex;align-items:center;background:var(--orange);color:var(--white);font-family:var(--font-en);font-size:9px;font-weight:800;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-right:5px;margin-bottom:4px;}
+    .kb-body{padding:48px 56px;}
+    .kb-sec{margin-bottom:40px;}
+    .kb-sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1.5px solid var(--lt-gray);}
+    .kb-sec-tag{font-family:var(--font-en);font-size:9px;font-weight:800;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;background:rgba(226,121,46,.08);padding:3px 9px;border-radius:3px;}
+    .kb-sec-ja{font-size:13px;font-weight:700;color:var(--black);letter-spacing:.05em;}
+    .kb-ov{background:var(--lt-gray);border-left:3px solid var(--orange);border-radius:0 6px 6px 0;padding:14px 20px;font-size:13px;line-height:1.85;color:var(--black);white-space:pre-wrap;}
+    .kb-tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+    .kb-tbl thead tr{border-bottom:2px solid var(--lt-gray);}
+    .kb-tbl th{text-align:left;padding:8px 12px;font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);background:rgba(238,237,235,.5);}
+    .kb-tbl td{padding:11px 12px;border-bottom:1px solid var(--lt-gray);vertical-align:top;line-height:1.5;}
+    .kb-tbl tr:last-child td{border-bottom:none;}
+    .rpill{display:inline-block;font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--lt-gray);color:var(--black);padding:2px 9px;border-radius:20px;}
+    .nmc{font-weight:700;font-size:13px;} .sub{font-size:11px;color:var(--gray);margin-top:2px;}
+    .kb-train-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+    .kb-train-card{border:1.5px solid var(--lt-gray);border-radius:12px;overflow:hidden;}
+    .kb-train-img{width:100%;height:130px;object-fit:cover;display:block;}
+    .kb-train-ph{width:100%;height:130px;background:var(--lt-gray);display:flex;align-items:center;justify-content:center;font-size:28px;}
+    .cs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+    .cs-card{border:1.5px solid var(--lt-gray);border-radius:12px;overflow:hidden;page-break-inside:avoid;}
+    .cs-hd{background:var(--black);color:var(--off-white);padding:16px 20px;}
+    .cs-name{font-size:18px;font-weight:700;letter-spacing:.02em;margin-bottom:4px;}
+    .cs-role{font-size:10px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.5);text-transform:uppercase;}
+    .cs-call{background:var(--orange);padding:14px 20px;display:flex;align-items:baseline;gap:10px;}
+    .cs-call-label{font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.7);text-transform:uppercase;}
+    .cs-call-value{font-family:var(--font-en);font-size:28px;font-weight:800;color:#fff;letter-spacing:.02em;line-height:1;}
+    .cs-body{padding:16px 20px;display:flex;flex-direction:column;gap:8px;}
+    .cs-row{display:flex;gap:10px;font-size:12px;line-height:1.5;}
+    .cs-key{font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.12em;color:var(--gray);text-transform:uppercase;white-space:nowrap;padding-top:2px;min-width:48px;}
+    .cs-items{display:flex;flex-wrap:wrap;gap:4px;padding-top:2px;}
+    .cs-item-tag{background:rgba(226,121,46,.1);color:var(--orange);font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;}
+    .kb-train-bd{padding:12px;}
+    .kb-train-name{font-size:13px;font-weight:700;color:var(--black);margin-bottom:4px;}
+    .kb-train-sets{font-family:var(--font-en);font-size:10px;font-weight:700;color:var(--orange);letter-spacing:.08em;margin-bottom:6px;}
+    .kb-train-desc{font-size:11.5px;color:var(--gray);line-height:1.6;}
+    .kb-day{margin-bottom:28px;}
+    .kb-day-bar{display:flex;align-items:center;gap:16px;margin-bottom:10px;}
+    .kb-day-num{font-family:var(--font-en);font-size:9px;font-weight:800;letter-spacing:.18em;color:var(--white);background:var(--black);padding:4px 12px;border-radius:3px;}
+    .kb-day-date{font-size:14px;font-weight:700;color:var(--black);} .kb-day-note{font-size:11px;color:var(--gray);}
+    .kb-tl{border:1px solid var(--lt-gray);border-radius:6px;overflow:hidden;}
+    .kb-tlt{width:100%;border-collapse:collapse;font-size:12.5px;}
+    .kb-tlt thead tr{background:rgba(238,237,235,.6);}
+    .kb-tlt th{text-align:left;padding:7px 12px;font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);border-bottom:1.5px solid var(--lt-gray);}
+    .kb-tlt td{padding:10px 12px;border-bottom:1px solid var(--lt-gray);vertical-align:top;line-height:1.55;}
+    .kb-tlt tr:last-child td{border-bottom:none;}
+    .tc{font-family:var(--font-en);font-size:16px;font-weight:800;color:var(--orange);white-space:nowrap;width:68px;}
+    .ac{font-weight:700;font-size:13px;} .dc{font-size:12px;color:var(--gray);} .nc{font-size:11px;color:#aaa;font-style:italic;}
+    .kb-shot-list{list-style:none;}
+    .kb-shot-item{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--lt-gray);font-size:13px;}
+    .kb-shot-item:last-child{border-bottom:none;}
+    .sdot{width:7px;height:7px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:7px;}
+    .scat{font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.08em;background:var(--lt-gray);color:var(--black);padding:2px 8px;border-radius:20px;flex-shrink:0;margin-top:3px;}
+    .kb-int-row{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--lt-gray);font-size:12.5px;}
+    .kb-int-row:last-child{border-bottom:none;}
+    .inm{font-weight:700;color:var(--black);} .iaf{color:var(--gray);font-size:12px;} .ico{color:var(--orange);font-size:12px;}
+    .kb-ft{background:var(--black);padding:16px 56px;display:flex;align-items:center;justify-content:space-between;}
+    .kb-ft-logo{font-family:var(--font-en);font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--off-white);}
+    .kb-ft-logo em{color:var(--orange);font-style:normal;}
+    .kb-ft-sub{font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;}
+    @media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}@page{margin:.6in;} .kb-day,.kb-train-card{page-break-inside:avoid;}.koban{border:none;border-radius:0;max-width:100%;margin:0;}}
+  </style>
+</head><body>
+<div class="koban">
+    <div class="kb-cover">
+      <img src="../../brand-book/core-illustration.svg" alt="" style="position:absolute;right:40px;bottom:0;width:200px;opacity:0.07;filter:brightness(0) invert(1);pointer-events:none;user-select:none;">
+      <div class="kb-cover-lbl">Production Schedule — 香盤表</div>
+      <div class="kb-cover-title">TRAINING MENU by THE PERSON Vol.5</div>
+      <div class="kb-cover-meta">
+        
+        <div class="kb-mi"><span class="kb-ml">Period</span><span class="kb-mv">2026年3月3日（火） → 2026年3月3日（火）</span></div>
+        <div class="kb-mi"><span class="kb-ml">Location</span><span class="kb-mv">THE PERSON 北参道<span style="display:block;font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;">〒151-0051 東京都渋谷区千駄ケ谷３丁目３８−５ YFLビル B1</span></span></div>
+        <div class="kb-mi"><span class="kb-ml">担当者</span><span class="kb-mv">柴田 夏乃 / 090-8773-8630</span></div>
+        <div class="kb-mi"><span class="kb-ml">Producer</span><span class="kb-mv">柴田 夏乃</span></div>
+        <div class="kb-mi"><span class="kb-ml">Status</span><span class="kb-mv">進行中</span></div>
+        <div class="kb-mi"><span class="kb-ml">Service</span><span class="kb-mv"><span class="kb-svc-tag">グループパーソナルトレーニング</span></span></div>
+      </div>
+    </div>
+    <div class="kb-body"><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/User-Team-Group-Member--Streamline-Core.svg" alt=""><span class="kb-sec-tag">Crew</span><span class="kb-sec-ja">撮影クルー</span></div>
+    <table class="kb-tbl"><thead><tr><th>#</th><th>名前</th><th>所属・役割</th><th>移動（行き）</th><th>移動（帰り）</th><th>備考</th></tr></thead>
+    <tbody><tr><td style="color:var(--gray);font-size:11px;text-align:center;">1</td><td class="nmc">藤井 翔太</td><td><span class="rpill">フォトグラファー</span></td><td></td><td></td><td class="sub"></td></tr><tr><td style="color:var(--gray);font-size:11px;text-align:center;">2</td><td class="nmc">柴田 夏乃</td><td><span class="rpill">進行/モデル</span></td><td></td><td></td><td class="sub"></td></tr><tr><td style="color:var(--gray);font-size:11px;text-align:center;">3</td><td class="nmc">五味 仁</td><td><span class="rpill">モデル</span></td><td></td><td></td><td class="sub"></td></tr></tbody>
+    </table></div><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/Clipboard-Text--Streamline-Core.svg" alt=""><span class="kb-sec-tag">Call Sheets</span><span class="kb-sec-ja">個人向けスケジュール</span></div>
+    <div class="cs-grid">
+      <div class="cs-card">
+        <div class="cs-hd">
+          <div class="cs-name">藤井 翔太</div>
+          <div class="cs-role">フォトグラファー</div>
+        </div>
+        <div class="cs-call"><span class="cs-call-label">Call Time</span><span class="cs-call-value">11:30</span></div>
+        <div class="cs-body">
+          <div class="cs-row"><span class="cs-key">場所</span><span>THE PERSON 北参道</span></div>
+          <div class="cs-row"><span class="cs-key">住所</span><a href="https://maps.google.com/?q=%E3%80%92151-0051%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E5%8D%83%E9%A7%84%E3%82%B1%E8%B0%B7%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%93%EF%BC%98%E2%88%92%EF%BC%95%20YFL%E3%83%93%E3%83%AB%20B1" style="color:var(--orange);font-size:12px;">〒151-0051 東京都渋谷区千駄ケ谷３丁目３８−５ YFLビル B1</a></div>
+          
+          
+          <div class="cs-row"><span class="cs-key">持ち物</span><div class="cs-items"><span class="cs-item-tag">カメラ</span><span class="cs-item-tag">三脚</span><span class="cs-item-tag">マイク</span><span class="cs-item-tag">PC</span></div></div>
+          
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-hd">
+          <div class="cs-name">柴田 夏乃</div>
+          <div class="cs-role">進行/モデル</div>
+        </div>
+        <div class="cs-call"><span class="cs-call-label">Call Time</span><span class="cs-call-value">11:30</span></div>
+        <div class="cs-body">
+          <div class="cs-row"><span class="cs-key">場所</span><span>THE PERSON 北参道</span></div>
+          <div class="cs-row"><span class="cs-key">住所</span><a href="https://maps.google.com/?q=%E3%80%92151-0051%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E5%8D%83%E9%A7%84%E3%82%B1%E8%B0%B7%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%93%EF%BC%98%E2%88%92%EF%BC%95%20YFL%E3%83%93%E3%83%AB%20B1" style="color:var(--orange);font-size:12px;">〒151-0051 東京都渋谷区千駄ケ谷３丁目３８−５ YFLビル B1</a></div>
+          
+          
+          <div class="cs-row"><span class="cs-key">持ち物</span><div class="cs-items"><span class="cs-item-tag">ユニフォーム</span><span class="cs-item-tag">PC</span></div></div>
+          
+        </div>
+      </div>
+      <div class="cs-card">
+        <div class="cs-hd">
+          <div class="cs-name">五味 仁</div>
+          <div class="cs-role">モデル</div>
+        </div>
+        <div class="cs-call"><span class="cs-call-label">Call Time</span><span class="cs-call-value">11:30</span></div>
+        <div class="cs-body">
+          <div class="cs-row"><span class="cs-key">場所</span><span>THE PERSON 北参道</span></div>
+          <div class="cs-row"><span class="cs-key">住所</span><a href="https://maps.google.com/?q=%E3%80%92151-0051%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E5%8D%83%E9%A7%84%E3%82%B1%E8%B0%B7%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%93%EF%BC%98%E2%88%92%EF%BC%95%20YFL%E3%83%93%E3%83%AB%20B1" style="color:var(--orange);font-size:12px;">〒151-0051 東京都渋谷区千駄ケ谷３丁目３８−５ YFLビル B1</a></div>
+          
+          
+          <div class="cs-row"><span class="cs-key">持ち物</span><div class="cs-items"><span class="cs-item-tag">ユニフォーム</span></div></div>
+          
+        </div>
+      </div>
+    </div></div><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/Checklist-Rule--Streamline-Core.svg" alt=""><span class="kb-sec-tag">Shot List</span><span class="kb-sec-ja">撮影カット表</span><span style="margin-left:auto;font-family:var(--font-en);font-size:11px;font-weight:700;color:var(--gray);">✓ 10 / 11 OK</span></div>
+    <div class="kb-tl"><table class="kb-shot-tbl" id="shotListTbl">
+      <thead><tr>
+        <th style="width:20px;"></th>
+        <th style="width:32px;text-align:center;">#</th>
+        <th style="width:88px;text-align:center;">OK / 番号</th>
+        <th>カット内容</th>
+        <th style="width:76px;">カテゴリ</th>
+        <th style="width:96px;">向き</th>
+        <th>説明・ポイント</th>
+        
+        
+        
+        
+      </tr></thead>
+      <tbody id="shotListBody"><tr class="shot-ok" draggable="true" data-shot-idx="0">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">1</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(0)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="0" oninput="updateOKNum(0,this.value)" onchange="updateOKNum(0,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">バックエクステンション</strong><br><span style="font-family:var(--font-en);font-size:10px;color:var(--orange);font-weight:700;">自重</span></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">背中全体を引き締める基本種目。体幹の安定性を高めながら、背骨周りの筋肉を強化できる。姿勢改善にも効果的。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="1">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">2</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(1)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="1" oninput="updateOKNum(1,this.value)" onchange="updateOKNum(1,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">足上げ腹筋レッグレイズ</strong><br><span style="font-family:var(--font-en);font-size:10px;color:var(--orange);font-weight:700;">自重</span></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">腹直筋下部を集中的に刺激する種目。脚を持ち上げる動作で下腹部の引き締めを狙う。骨盤の安定性を保ちながら動作することで、効果的にお腹周りを鍛えられる。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="2">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">3</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(2)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="2" oninput="updateOKNum(2,this.value)" onchange="updateOKNum(2,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">サイドレッグレイズ</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">横向きで脚を持ち上げる種目。お尻の外側と太ももの外側を引き締める効果が高い。骨盤を安定させて動かすことで、下半身のラインを整えられる。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="3">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">4</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(3)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="3" oninput="updateOKNum(3,this.value)" onchange="updateOKNum(3,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">クラムシェル</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">お尻の横側を引き締める種目。横向きに寝て膝を開閉することで、ヒップラインを整え、骨盤の安定性も高められる。</td>
+          
+          
+          
+          </tr><tr class="" draggable="true" data-shot-idx="4">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">5</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle" onclick="togglePreviewOK(4)">✓ OK</button>
+            <span style="display:block;text-align:center;color:var(--lt-gray);font-size:14px;margin-top:2px;">—</span>
+          </td>
+          <td><strong style="font-size:13px;">休憩</strong></td>
+          <td><span class="rpill">その他</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;"></td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="5">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">6</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(5)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="5" oninput="updateOKNum(5,this.value)" onchange="updateOKNum(5,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">ヒップリフト</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">お尻と体幹の引き締めに効果的な種目。仰向けで腰を持ち上げることでヒップラインを整え、姿勢改善にもつながる。初心者でも安全に取り組める。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="6">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">7</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(6)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="6" oninput="updateOKNum(6,this.value)" onchange="updateOKNum(6,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">90-90 クランチ</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">腹直筋を集中的に狙う基本種目。脚を90度に保つことで腰への負担を抑えながら、お腹の引き締めに効果的。初心者でも安全に取り組める。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="7">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">8</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(7)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="7" oninput="updateOKNum(7,this.value)" onchange="updateOKNum(7,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">V字腹筋</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">体幹全体を引き締める代表的な種目。上体と脚を同時に持ち上げることで腹直筋全体に刺激を与え、体幹の安定性とコントロール力を高められる。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="8">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">9</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(8)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="8" oninput="updateOKNum(8,this.value)" onchange="updateOKNum(8,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">バックエクステンションW</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">背中全体を引き締める種目。うつ伏せの状態から上体を起こしながら腕をW字に開くことで、脊柱起立筋と肩甲骨周りを同時に刺激できる。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="9">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">10</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(9)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="9" oninput="updateOKNum(9,this.value)" onchange="updateOKNum(9,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">フロントプランク</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">体幹全体を安定させる代表的な種目。正しい姿勢を保持することで、日常生活やあらゆる運動の土台となる体幹の力を効率的に高められる。</td>
+          
+          
+          
+          </tr><tr class="shot-ok" draggable="true" data-shot-idx="10">
+          <td class="shot-drag-hd">⠿</td>
+          <td style="text-align:center;color:var(--gray);font-size:11px;">11</td>
+          <td style="text-align:center;">
+            <button class="kb-ok-toggle done" onclick="togglePreviewOK(10)">✓ OK</button>
+            <input class="kb-oknum-input" type="text" value="" placeholder="" data-shot-idx="10" oninput="updateOKNum(10,this.value)" onchange="updateOKNum(10,this.value)">
+          </td>
+          <td><strong style="font-size:13px;">サイドプランク</strong></td>
+          <td><span class="rpill">トレーニング</span></td>
+          <td><span class="rpill" style="display:inline-block;margin-bottom:2px;background:#EEEDEB;color:#1C1C1C;">横</span></td>
+          <td style="font-size:12px;color:var(--gray);line-height:1.6;">体幹の側面を安定させる代表種目。日常の姿勢改善やウエスト引き締めに効果的。左右差を確認しながら実施することで、バランスの取れた体幹づくりができる。</td>
+          
+          
+          
+          </tr></tbody>
+    </table></div></div><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/Check-Circle--Streamline-Core.svg" alt=""><span class="kb-sec-tag" style="background:rgba(34,125,81,.1);color:var(--green);">OK Cuts</span><span class="kb-sec-ja">OKカット一覧</span><span style="margin-left:auto;font-family:var(--font-en);font-size:11px;font-weight:700;color:var(--green);">✓ 10 cuts</span></div>
+  <div class="kb-okcut-grid"><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-1</div>
+    <div class="kb-okcut-name">バックエクステンション</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-2</div>
+    <div class="kb-okcut-name">足上げ腹筋レッグレイズ</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-3</div>
+    <div class="kb-okcut-name">サイドレッグレイズ</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-4</div>
+    <div class="kb-okcut-name">クラムシェル</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-5</div>
+    <div class="kb-okcut-name">ヒップリフト</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-6</div>
+    <div class="kb-okcut-name">90-90 クランチ</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-7</div>
+    <div class="kb-okcut-name">V字腹筋</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-8</div>
+    <div class="kb-okcut-name">バックエクステンションW</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-9</div>
+    <div class="kb-okcut-name">フロントプランク</div>
+    
+  </div><div class="kb-okcut-card">
+    <div class="kb-okcut-num">OK-10</div>
+    <div class="kb-okcut-name">サイドプランク</div>
+    
+  </div></div></div><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/Calendar-Check--Streamline-Core.svg" alt=""><span class="kb-sec-tag">Schedule</span><span class="kb-sec-ja">撮影スケジュール</span></div>
+    <div class="kb-day">
+      <div class="kb-day-bar"><span class="kb-day-num">DAY 1</span><span class="kb-day-date">2026年3月3日（火）</span></div>
+      <div class="kb-tl"><table class="kb-tlt">
+        <thead><tr><th style="width:70px;">時間</th><th>行動・場所</th><th>撮影内容</th><th>備考</th></tr></thead>
+        <tbody><tr><td class="tc">12:00</td><td class="ac">バックエクステンション</td><td class="dc">自重 / 背中全体を引き締める基本種目。体幹の安定性を高めながら、背骨周りの筋肉を強化できる。姿勢改善にも効果的。</td><td class="nc"></td></tr><tr><td class="tc">12:15</td><td class="ac">足上げ腹筋レッグレイズ</td><td class="dc">自重 / 腹直筋下部を集中的に刺激する種目。脚を持ち上げる動作で下腹部の引き締めを狙う。骨盤の安定性を保ちながら動作することで、効果的にお腹周りを鍛えられる。</td><td class="nc"></td></tr><tr><td class="tc">12:30</td><td class="ac">サイドレッグレイズ</td><td class="dc">横向きで脚を持ち上げる種目。お尻の外側と太ももの外側を引き締める効果が高い。骨盤を安定させて動かすことで、下半身のラインを整えられる。</td><td class="nc"></td></tr><tr><td class="tc">12:45</td><td class="ac">クラムシェル</td><td class="dc">お尻の横側を引き締める種目。横向きに寝て膝を開閉することで、ヒップラインを整え、骨盤の安定性も高められる。</td><td class="nc"></td></tr><tr><td class="tc">13:00</td><td class="ac">休憩</td><td class="dc"></td><td class="nc"></td></tr><tr><td class="tc">13:15</td><td class="ac">ヒップリフト</td><td class="dc">お尻と体幹の引き締めに効果的な種目。仰向けで腰を持ち上げることでヒップラインを整え、姿勢改善にもつながる。初心者でも安全に取り組める。</td><td class="nc"></td></tr><tr><td class="tc">13:30</td><td class="ac">90-90 クランチ</td><td class="dc">腹直筋を集中的に狙う基本種目。脚を90度に保つことで腰への負担を抑えながら、お腹の引き締めに効果的。初心者でも安全に取り組める。</td><td class="nc"></td></tr><tr><td class="tc">13:45</td><td class="ac">V字腹筋</td><td class="dc">体幹全体を引き締める代表的な種目。上体と脚を同時に持ち上げることで腹直筋全体に刺激を与え、体幹の安定性とコントロール力を高められる。</td><td class="nc"></td></tr><tr><td class="tc">14:00</td><td class="ac">バックエクステンションW</td><td class="dc">背中全体を引き締める種目。うつ伏せの状態から上体を起こしながら腕をW字に開くことで、脊柱起立筋と肩甲骨周りを同時に刺激できる。</td><td class="nc"></td></tr><tr><td class="tc">14:15</td><td class="ac">フロントプランク</td><td class="dc">体幹全体を安定させる代表的な種目。正しい姿勢を保持することで、日常生活やあらゆる運動の土台となる体幹の力を効率的に高められる。</td><td class="nc"></td></tr><tr><td class="tc">14:30</td><td class="ac">サイドプランク</td><td class="dc">体幹の側面を安定させる代表種目。日常の姿勢改善やウエスト引き締めに効果的。左右差を確認しながら実施することで、バランスの取れた体幹づくりができる。</td><td class="nc"></td></tr></tbody>
+      </table></div></div></div><div class="kb-sec"><div class="kb-sec-hd"><img class="icon-sec" src="../../brand-book/images/icons/Location-Pin-3--Streamline-Core.svg" alt=""><span class="kb-sec-tag">Logistics</span><span class="kb-sec-ja">移動・宿泊・周辺情報</span></div><div style="margin-bottom:20px;"><div style="font-family:var(--font-en);font-size:9px;font-weight:700;letter-spacing:.16em;color:var(--gray);text-transform:uppercase;margin-bottom:10px;">TRAVEL</div>
+      <table class="kb-tbl"><thead><tr><th>手段</th><th>詳細</th><th>出発</th><th>到着</th><th>対象者</th></tr></thead>
+      <tbody><tr><td><span class="rpill">飛行機</span></td><td></td><td style="font-weight:600;"></td><td style="font-weight:600;"></td><td class="sub"></td></tr></tbody>
+      </table></div></div></div><div class="kb-ft"><div class="kb-ft-logo">THE <em>PERSON</em></div><div class="kb-ft-sub">Generated 2026年3月13日 — stadiums inc.</div></div></div>
+<script>
+// Print shortcut
+document.addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='p'){e.preventDefault();window.print();} });
+</script>
+</body></html>
